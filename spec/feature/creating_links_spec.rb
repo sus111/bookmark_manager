@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 feature 'creating links' do
-
 scenario 'user adds a new link' do
   visit '/links'
   click_button('Add Link')
