@@ -12,6 +12,7 @@ gem 'rake'
 
 group :test do
   gem 'rspec'
+  gem 'database_cleaner'
   # gem 'rspec-sinatra'
   # gem 'rubocop-rspec'
   # gem 'rubocop'
