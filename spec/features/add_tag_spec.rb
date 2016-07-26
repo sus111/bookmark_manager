@@ -3,6 +3,8 @@ require './spec/spec_helper'
   feature 'Add tag to a link' do
     scenario 'I want to add a tag to a link' do
       visit '/links/new'
+      fill_in 'url', with: 'http://www.google.com'
+      fill_in 'title', with: 'Google'
       fill_in 'tag', with: 'news'
       click_button 'Add site'
       expect(current_path).to eq '/links'
