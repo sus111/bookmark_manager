@@ -20,12 +20,17 @@ get '/links/new' do
 end
 
 post '/links' do
-  link = Link.create(url: params[:url], title: params[:title])
+  link = Link.new(url: params[:url], title: params[:title])
   tag = Tag.first_or_create(tag: params[:tag])
-  redirect '/links'
   link.tags << tag
   link.save
   redirect to('/links')
+end
+
+get '/tags' do
+  tag = Tag.first(tag: params[:tag])
+  @links = tag ? tag.links : []
+  erb :'links/index'
 end
 
   # start the server if ruby file executed directly

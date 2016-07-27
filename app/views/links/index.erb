@@ -13,10 +13,11 @@
   <% end %>
 </ul>
 
-<ul id='tags'>
-  <% @tags.each do |tag| %>
-    <li>
-      Tag:  <%= tag.tag %>
-    </li>
-  <% end %>
-</ul>
+
+<form action="/tags" method = "get">
+  <label for = "tag">
+    Enter tag
+  <input type = "text" name = "tag"/>
+  </label>
+  <input type="submit" value="Search tags"/>
+</form>
