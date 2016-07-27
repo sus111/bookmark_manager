@@ -12,3 +12,11 @@
     </li>
   <% end %>
 </ul>
+
+<ul id='tags'>
+  <% @tags.each do |tag| %>
+    <li>
+      Tag:  <%= tag.tag %>
+    </li>
+  <% end %>
+</ul>
