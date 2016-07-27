@@ -21,8 +21,9 @@ end
 
 post '/links' do
   link = Link.new(url: params[:url], title: params[:title])
-  tag = Tag.first_or_create(tag: params[:tag])
-  link.tags << tag
+  params[:tag].split.each do |tag|
+    link.tags << Tag.create(tag: tag)
+  end
   link.save
   redirect to('/links')
 end
