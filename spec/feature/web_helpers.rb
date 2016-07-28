@@ -15,3 +15,12 @@ def add_tag
   fill_in "tag", :with => "video"
   click_button 'submit'
 end
+
+def sign_up
+  visit '/'
+  click_button('Sign up')
+  fill_in "name", :with => "aga"
+  fill_in "email", :with => "aga@gmail.com"
+  fill_in "password", :with => "monkey"
+  click_button('Sign me up!')
+end
