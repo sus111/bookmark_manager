@@ -40,20 +40,21 @@ get '/tags' do
 end
 
 get '/user/new' do
+  @user = User.new
   erb :'user/sign_up'
 end
 
 post '/user' do
-  user = User.create(name: params[:name],
+  @user = User.new(name: params[:name],
                     email: params[:email],
                     password: params[:password],
                     password_confirmation: params[:password_confirmation])
-  if user.save
-    session[:user_id] = user.id
+  if @user.save
+    session[:user_id] = @user.id
     redirect '/'
   else
-    flash[:bad] = "You entered an incorrect password"
-    redirect '/user/new'
+    flash.now[:bad] = "Your passwords don\'t match"
+    erb :'/user/sign_up'
   end
 end
 
@@ -62,12 +63,6 @@ helpers do
     @current_user ||= User.get(session[:user_id])
   end
 end
-
-post '/bad_password' do
-  flash[:bad] = "You entered a very bad password"
-  redirect '/user/new'
-end
-
 
   # start the server if ruby file executed directly
   run! if app_file == $0

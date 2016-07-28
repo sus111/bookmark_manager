@@ -4,11 +4,11 @@ Sign up here:
 <form action="/user" method = "post">
   <label for = "name">
     Enter name:
-  <input type = "text" name = "name"/>
+  <input type = "text" name = "name" value="<%= @user.name %>"/>
   </label>
   <label for = "email">
     Enter email:
-  <input type = "text" name = "email"/>
+  <input type = "text" name = "email" value="<%= @user.email %>"/>
   </label>
   <label for = "password">
     Enter password:
