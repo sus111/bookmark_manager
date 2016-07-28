@@ -52,11 +52,11 @@ get '/user/welcome' do
   erb :'user/welcome'
 end
 
-helper do
-  def current_user
-    User.find(session[:user_id])
-  end
-end
+# helper do
+#   def current_user
+#     User.find(session[:user_id])
+#   end
+# end
 
   # start the server if ruby file executed directly
   run! if app_file == $0
