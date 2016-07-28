@@ -13,8 +13,7 @@ require 'spec_helper'
 
     scenario 'check user\'s email address is correct' do
       sign_up
-      p User.get(:email)
-    #  expect(User.get(:email))
+      expect(User.first.email).to eq('aga@gmail.com')
     end
 
 
