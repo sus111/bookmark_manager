@@ -16,5 +16,15 @@ require 'spec_helper'
       expect(User.first.email).to eq('aga@gmail.com')
     end
 
+    scenario 'sign up fails if password does not match password confiramtion' do
+      visit '/'
+      click_button('Sign up')
+      fill_in "name", :with => "aga"
+      fill_in "email", :with => "aga@gmail.com"
+      fill_in "password", :with => "monkey"
+      fill_in "password_confirmation", :with => "wrong password"
+      click_button "Sign me up!"
+      expect(page).to have_content "Incorrect password"
+    end
 
   end
