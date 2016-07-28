@@ -20,3 +20,7 @@ Sign up here:
   </label>
   <input type="submit" value="Sign me up!"/>
 </form>
+
+<% if flash[:bad] %>
+  <div id='notice'><%= flash[:bad] %></div>
+<% end %>

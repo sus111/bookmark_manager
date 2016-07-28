@@ -24,7 +24,7 @@ require 'spec_helper'
       fill_in "password", :with => "monkey"
       fill_in "password_confirmation", :with => "wrong password"
       click_button "Sign me up!"
-      expect(page).to have_content "Incorrect password"
+      expect(page).to have_content "incorrect password"
     end
 
   end
